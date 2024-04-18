@@ -44,7 +44,7 @@ const getWeather = async(locationKey) => {
 
 const getCityOpenweather = async (city) => {
     const BASE_URL = "http://api.openweathermap.org/data/2.5/weather?q="
-    const QUERY = `&appid=${API_KEY_OPENWEATHER}`
+    const QUERY = `&appid=${API_KEY_OPENWEATHER}&units=metric`
 
     const response = await fetch(BASE_URL + city + QUERY)
     const data = await response.json()

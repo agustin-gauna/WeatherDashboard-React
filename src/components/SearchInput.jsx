@@ -23,8 +23,15 @@ const SearchInput = () => {
         getCityOpenweather(citySearch),
       ]);
 
+      const weatherData = {
+        openWeather: openWeatherData,
+        accuWeather: accuWeatherData,
+      };
+
       console.log("Datos de AccuWeather:", accuWeatherData);
       console.log("Datos de OpenWeather:", openWeatherData);
+
+      setWeather(weatherData);
     } catch (error) {
       console.error("error en obtener los datos");
     }
