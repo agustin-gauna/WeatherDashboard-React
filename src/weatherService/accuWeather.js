@@ -49,8 +49,38 @@ const getCityOpenweather = async (city) => {
     const response = await fetch(BASE_URL + city + QUERY)
     const data = await response.json()
 
+    const {
+        coord: { lat, lon },
+        main: { temp, feels_like, temp_min, temp_max, humidity },
+        visibility,
+        name,
+        dt,
+        sys: { country, sunrise, sunset },
+        weather,
+        wind: { speed }
+    } = data
 
-    return data
+    const { main: details, icon } = weather[0]
+
+    return {
+
+        lat,
+        lon,
+        temp,
+        feels_like,
+        temp_min,
+        temp_max,
+        humidity,
+        visibility,
+        name,
+        dt,
+        country,
+        sunrise,
+        sunset,
+        details,
+        icon,
+        speed
+    }
 }
 
 export {getCity,getWeather,getCityOpenweather,}
