@@ -11,12 +11,9 @@ const API_KEY_OPENWEATHER = "6419b61865ae340750eb256dda6f170b"; // api key de op
 const getCity = async (city) => {
 
     const BASE_URL = "http://dataservice.accuweather.com/locations/v1/cities/autocomplete"
-    // const QUERY = `?apikey=${API_KEY}&q=${city}`
-    const url = new URL(BASE_URL)
-    url.searchParams.append('apikey', API_KEY)
-    url.searchParams.append('q',city)
+    const QUERY = `?apikey=${API_KEY}&q=${city}`
 
-    const response = await fetch(url)
+    const response = await fetch(BASE_URL + QUERY)
     const data = await response.json()
 
     return data[0];
@@ -63,16 +60,10 @@ const getWeather = async(locationKey) => {
 // esta funcion recibe como parametro la ciudad buscada y retorna la lat y lon de la ciudad
 
 const getCityOpenweather = async (city) => {
-    const BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
-    // const QUERY = `&appid=${API_KEY_OPENWEATHER}&units=metric`
+    const BASE_URL = "http://api.openweathermap.org/data/2.5/weather?q="
+    const QUERY = `&appid=${API_KEY_OPENWEATHER}&units=metric`
 
-    const url = new URL(BASE_URL)
-    url.searchParams.append('q', city)
-    url.searchParams.append('appid', API_KEY_OPENWEATHER)
-    url.searchParams.append('units', 'metric')
-
-
-    const response = await fetch(url)   
+    const response = await fetch(BASE_URL + city + QUERY)
     const data = await response.json()
 
     const {

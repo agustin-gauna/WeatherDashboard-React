@@ -52,9 +52,9 @@ const RenderWeather = ({ weather }) => {
   const date = new Date(dt * 1000);
 
   const options = {
-    weekday: "long", // Nombre completo del día de la semana
-    hour: "numeric", // Hora (formato de 24 horas)
-    minute: "numeric", // Minutos
+    weekday: "long",
+    hour: "numeric",
+    minute: "numeric",
   };
 
   const formatedDate = date.toLocaleString("en-EN", options);
