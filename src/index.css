@@ -5,4 +5,15 @@
 body {
   font-family: 'Plus Jakarta Sans Variable', sans-serif;
   background-color: #121212;
+
 }
+
+.slick-slide > div {
+  margin: 0 8px;
+}
+
+.custom-width{
+  width: 102px !important ;
+  
+}
+

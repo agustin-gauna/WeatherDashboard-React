@@ -49,18 +49,14 @@ const SliderForHour = () => {
   return (
     <div className="bg-[#1E1E1E] p-8 rounded-lg">
       <Slider {...settings} className="flex justify-center">
-        <WeatherHour />
-        <WeatherHour />
-        <WeatherHour />
-        <WeatherHour />
-        <WeatherHour />
-        <WeatherHour />
-        <WeatherHour />
-        <WeatherHour />
-        <WeatherHour />
-        <WeatherHour />
-        <WeatherHour />
-        <WeatherHour />
+        {twelveHourForecast.map((hour, index) => (
+          <WeatherHour
+            key={index}
+            dateTime={hour.dateTime}
+            icon={hour.icon}
+            temperature={hour.temperature}
+          />
+        ))}
         <WeatherHour />
       </Slider>
     </div>
