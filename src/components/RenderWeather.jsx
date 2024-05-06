@@ -153,8 +153,8 @@ const RenderWeather = ({ weather }) => {
 
   return (
     <main>
-      <section className=" m-auto mb-4 flex flex-col gap-4 lg:flex-row  lg:gap-8">
-        <div className="flex flex-col gap-2 text-white px-4 py-8  bg-[#1E1E1E] rounded-lg lg:p-8 justify-center ">
+      <section className=" m-auto mb-4 flex  flex-wrap flex-grow gap-4 ">
+        <div className="flex flex-col gap-2 text-white px-4 py-8  bg-[#1E1E1E] rounded-lg lg:p-8  flex-grow ">
           <div className="flex gap-1 items-center">
             <UilLocationPoint />
             <p className="font-bold text-xl lg:text-5xl">{`${name}, ${country}`}</p>
@@ -216,7 +216,7 @@ const RenderWeather = ({ weather }) => {
           </div>
 
           <p>
-            length of day{" "}
+            Length of day{" "}
             <span className="font-bold">{dayDuration(sunrise, sunset)}</span>
           </p>
         </div>

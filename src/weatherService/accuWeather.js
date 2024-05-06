@@ -110,4 +110,36 @@ const getCityOpenweather = async (city) => {
     }
 }
 
-export {getCity,getWeather,getCityOpenweather,}
+const topCities = async (city) => {
+    const BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
+
+    const url = new URL(BASE_URL)
+    url.searchParams.append('q', city)
+    url.searchParams.append('appid', API_KEY_OPENWEATHER)
+    url.searchParams.append('units', 'metric')
+
+    const response = await fetch(url)   
+    const data = await response.json()
+
+    const {
+        main:{temp},
+        name,
+        sys:{country},
+        weather
+    } = data
+    
+    const {main:icon} = weather[0]
+
+    return {
+        temp,
+        name, 
+        country,
+        weather,
+        icon
+    }
+}
+
+
+
+
+export {getCity,getWeather,getCityOpenweather, topCities}
