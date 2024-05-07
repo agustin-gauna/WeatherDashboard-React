@@ -152,7 +152,7 @@ const RenderWeather = ({ weather }) => {
   };
 
   return (
-    <main>
+    <main className="mb-4">
       <section className=" m-auto mb-4 flex  flex-wrap flex-grow gap-4 ">
         <div className="flex flex-col gap-2 text-white px-4 py-8  bg-[#1E1E1E] rounded-lg lg:p-8  flex-grow ">
           <div className="flex gap-1 items-center">

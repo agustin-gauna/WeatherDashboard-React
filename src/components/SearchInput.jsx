@@ -8,9 +8,10 @@ import {
 } from "../weatherService/accuWeather";
 import RenderWeather from "./RenderWeather";
 import CitiesToShow from "./CitiesToShow";
+import MapShowing from "./MapShowing";
 
 const SearchInput = () => {
-  const [citySearch, setCitySearch] = useState("buenos aires");
+  const [citySearch, setCitySearch] = useState("la plata");
   const [weather, setWeather] = useState([]);
   const [cities, setCities] = useState([
     "new york",
@@ -124,6 +125,8 @@ const SearchInput = () => {
       <CitiesToShow topCitiesInfo={topCitiesInfo}></CitiesToShow>
 
       {weather && <RenderWeather weather={weather} />}
+
+      <MapShowing weather={weather}></MapShowing>
     </div>
   );
 };
