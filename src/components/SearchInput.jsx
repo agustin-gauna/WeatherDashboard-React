@@ -67,18 +67,14 @@ const SearchInput = () => {
         }
       };
 
-      fetchWeatherData(); // Llamar a la función para cargar los datos del clima al montar el componente
+      fetchWeatherData();
     }, 2000);
-  }, [citySearch]); // Ejecutar el efecto cada vez que cambie la ciudad buscada
+  }, [citySearch]);
 
   const enviarDatos = async (e) => {
     e.preventDefault();
-    // const datos = await getCity(citySearch);
-    // const resultado = await getWeather(datos.Key);
-    // setWeather(resultado);
 
     try {
-      // llamada a las apis en simultaneo
       const [accuWeatherData, openWeatherData] = await Promise.all([
         getCity(citySearch).then((data) => getWeather(data.Key)),
         getCityOpenweather(citySearch),
@@ -97,8 +93,6 @@ const SearchInput = () => {
       console.error("error en obtener los datos");
     }
   };
-
-  // console.log(weather);
 
   return (
     <div className="w-full">
